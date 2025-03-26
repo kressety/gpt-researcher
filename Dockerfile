@@ -19,6 +19,7 @@ RUN arch=$(uname -m) && \
         rm geckodriver-v0.33.0-linux64.tar.gz; \
     elif [ "$arch" = "aarch64" ]; then \
         apt-get update && \
+        apt-get install -y gnupg wget ca-certificates --no-install-recommends && \
         apt-get install -y chromium chromium-driver --no-install-recommends && \
         chromium --version && chromedriver --version && \
         apt-get install -y --no-install-recommends firefox-esr build-essential && \
